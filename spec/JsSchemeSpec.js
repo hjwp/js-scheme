@@ -1,6 +1,6 @@
 const jss = require('../lib/jsscheme');
 
-const fact = [
+const defineFact = [
     "define",
     "fact",
     [
@@ -20,6 +20,25 @@ describe('Interpreter', function() {
   it('should return primitives as themselves', function() {
     result = jss.eval(42);
     expect(result).toEqual(42);
+  });
+
+  xit('should let you define a variable', function() {
+    jss.eval(["define", "n", 5]);
+    result = jss.eval("n");
+    expect(result).toEqual(5);
+  });
+
+  // other ideas for tests:
+  // expresssions & builtin operators, eg (+ 1 1)
+  // nested expressions
+  // if
+  // lambda
+  // any of the above with nested stuff
+
+  xit('should be able to do factorial', function() {
+    jss.eval(defineFact);
+    result = jss.eval(["fact", 5]);
+    expect(result).toEqual(120);
   });
 
 });
