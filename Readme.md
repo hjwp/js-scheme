@@ -4,5 +4,5 @@
 
 ```
 npm install --include=dev
-npm run tests
+npm run test
 ```
